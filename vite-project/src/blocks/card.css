@@ -1,0 +1,39 @@
+.cards__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 21px;
+}
+
+.cards__text {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-size: 20px;
+  margin: 25px;
+}
+
+.card__list-item {
+  width: 323px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card__list-name {
+  position: absolute;
+  top: 15px;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-size: 20px;
+  color: #00000099;
+  border-radius: 5px;
+  padding: 2px 12px;
+  margin: 0;
+  background-color: white;
+}
+
+.card__list-image {
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid #0000004d;
+}

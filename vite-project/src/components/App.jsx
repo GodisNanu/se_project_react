@@ -4,7 +4,7 @@ import Header from "./Header";
 import Main from "./Main";
 
 function App() {
-  const { weatherData, setWeatherData } = useState({ type: "" });
+  const { weatherData, setWeatherData } = useState({ type: "hot" });
 
   return (
     <div className="page">
