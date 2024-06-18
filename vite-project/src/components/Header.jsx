@@ -5,7 +5,7 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header() {
+function Header({ weatherData }) {
   return (
     <header className="header">
       <img
@@ -13,7 +13,9 @@ function Header() {
         alt="wtwr logo"
         className="header__logo"
       />
-      <p className="header__date-and-location">{currentDate}, Location</p>
+      <p className="header__date-and-location">
+        {currentDate}, {weatherData.city}
+      </p>
       <button className="header__add-clothes-button">+ Add clothes</button>
       <div className="header__user-container">
         <p className="header__username"> Terrence Tegegne </p>
