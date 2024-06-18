@@ -20,7 +20,6 @@ function App() {
   useEffect(() => {
     getWeather(latitude, longitude, apiKey)
       .then((data) => {
-        console.log(data);
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
       })
