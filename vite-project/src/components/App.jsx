@@ -6,6 +6,7 @@ import { longitude } from "../utils/constants";
 import { apiKey } from "../utils/constants";
 import Header from "./Header";
 import Main from "./Main";
+import ModalWithForm from "./ModalWithForm";
 import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
 import { getWeatherType } from "../utils/weatherApi";
@@ -31,6 +32,7 @@ function App() {
       <div className="page__content">
         <Header weatherData={weatherData} />
         <Main weatherData={weatherData} />
+        <ModalWithForm />
       </div>
     </div>
   );
