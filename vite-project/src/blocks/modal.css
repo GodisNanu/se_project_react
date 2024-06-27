@@ -1,14 +1,41 @@
 .modal {
+  background-color: white;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 496px;
+  width: 100%;
+  top: 193px;
+  left: 472px;
+  border: 1px solid #0000004d;
+  border-radius: 20px;
 }
 
 .modal__content {
-  background-color: white;
+  padding: 28px 28px 36px;
+}
+
+.modal__title {
+  margin: 0;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__input {
+  display: block;
+}
+
+.modal__radio-buttons {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 0;
 }

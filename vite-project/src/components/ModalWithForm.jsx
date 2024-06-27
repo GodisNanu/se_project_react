@@ -28,7 +28,7 @@ function ModalWithForm() {
             />
           </label>
           <fieldset className="modal__radio-buttons">
-            <legend className="modal__legend"> Select weather type</legend>
+            <legend className="modal__legend"> Slect the weather</legend>
             <label htmlFor="hot" className="modal__label modal__radio">
               <input id="hot" type="radio" className="modal__radio-input" /> Hot
             </label>
@@ -46,6 +46,10 @@ function ModalWithForm() {
             </label>
           </fieldset>
         </form>
+        <button type="submit" className="modal__submit">
+          {" "}
+          Add garment{" "}
+        </button>
       </div>
     </div>
   );
