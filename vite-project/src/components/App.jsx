@@ -21,6 +21,9 @@ function App() {
   const handleButtonClick = () => {
     setActiveModal("add-garment");
   };
+  const closeModal = () => {
+    setActiveModal("");
+  };
 
   useEffect(() => {
     getWeather(latitude, longitude, apiKey)
@@ -43,6 +46,7 @@ function App() {
           title="New garment"
           buttonText="Add garment"
           activeModal={activeModal}
+          closeModal={closeModal}
         >
           <label htmlFor="name" className="modal__label">
             Name{" "}
