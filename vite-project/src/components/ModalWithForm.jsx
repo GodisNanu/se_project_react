@@ -5,7 +5,9 @@ function ModalWithForm() {
     <div className="modal">
       <div className="modal__content">
         <h2 className="modal__title">New Garment</h2>
-        <button className="modal__close">CLOSE</button>
+        <button src="" className="modal__close">
+          Close
+        </button>
         <form action="" className="modal__form">
           <label htmlFor="name" className="modal__label">
             Name{" "}
@@ -28,7 +30,7 @@ function ModalWithForm() {
             />
           </label>
           <fieldset className="modal__radio-buttons">
-            <legend className="modal__legend"> Slect the weather</legend>
+            <legend className="modal__legend"> Slect the weather type: </legend>
             <label htmlFor="hot" className="modal__label modal__radio">
               <input id="hot" type="radio" className="modal__radio-input" /> Hot
             </label>

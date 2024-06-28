@@ -1,24 +1,37 @@
 .modal {
-  background-color: white;
   position: fixed;
-  max-width: 496px;
+  top: 0;
+  left: 0;
   width: 100%;
-  top: 193px;
-  left: 472px;
-  border: 1px solid #0000004d;
-  border-radius: 20px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal__content {
+  position: relative;
   padding: 28px 28px 36px;
+  max-width: 496px;
+  width: 100%;
+  border: 1px solid #0000004d;
+  border-radius: 20px;
+  background-color: white;
 }
 
 .modal__title {
   margin: 0;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 22px;
 }
 
 .modal__close {
   position: absolute;
+  border: none;
+  background-color: transparent;
   top: 20px;
   right: 28px;
 }
@@ -27,10 +40,21 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 22px;
+}
+
+.modal__label {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .modal__input {
   display: block;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-top: 6px;
 }
 
 .modal__radio-buttons {
@@ -38,4 +62,25 @@
   flex-direction: column;
   border: none;
   padding: 0;
+  gap: 10px;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.modal__legend {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.modal__submit {
+  margin-top: 22px;
+  margin-bottom: 0;
+  padding: 8px 16px;
+  background-color: #0000004d;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
 }
