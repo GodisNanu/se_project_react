@@ -5,7 +5,7 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header({ weatherData }) {
+function Header({ weatherData, handleButtonClick }) {
   return (
     <header className="header">
       <img
@@ -16,7 +16,13 @@ function Header({ weatherData }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
-      <button className="header__add-clothes-button">+ Add clothes</button>
+      <button
+        onClick={handleButtonClick}
+        type="button"
+        className="header__add-clothes-button"
+      >
+        + Add clothes
+      </button>
       <div className="header__user-container">
         <p className="header__username"> Terrence Tegegne </p>
         <img

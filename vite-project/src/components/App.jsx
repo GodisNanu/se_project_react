@@ -17,6 +17,10 @@ function App() {
     temp: { F: 999 },
     city: "",
   });
+  const [activeModal, setActiveModal] = useState("");
+  const handleButtonClick = () => {
+    setActiveModal("add-garment");
+  };
 
   useEffect(() => {
     getWeather(latitude, longitude, apiKey)
@@ -30,9 +34,16 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header weatherData={weatherData} />
+        <Header
+          weatherData={weatherData}
+          handleButtonClick={handleButtonClick}
+        />
         <Main weatherData={weatherData} />
-        <ModalWithForm title="New garment" buttonText="Add garment">
+        <ModalWithForm
+          title="New garment"
+          buttonText="Add garment"
+          activeModal={activeModal}
+        >
           <label htmlFor="name" className="modal__label">
             Name{" "}
             <input
