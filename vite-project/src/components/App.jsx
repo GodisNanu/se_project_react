@@ -116,6 +116,7 @@ function App() {
           </fieldset>
         </ModalWithForm>
         <ItemModal
+          handleOutsideClick={handleOutsideClick}
           activeModal={activeModal}
           item={selectedCard}
           onClose={onClose}

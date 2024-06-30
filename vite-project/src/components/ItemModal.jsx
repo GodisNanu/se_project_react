@@ -1,8 +1,11 @@
 import "../blocks/modal.css";
 
-function ItemModal({ activeModal, item, onClose }) {
+function ItemModal({ handleOutsideClick, activeModal, item, onClose }) {
   return (
-    <div className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}>
+    <div
+      onClick={handleOutsideClick}
+      className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}
+    >
       <div className="modal__content modal__content-card-item">
         <button
           onClick={onClose}
