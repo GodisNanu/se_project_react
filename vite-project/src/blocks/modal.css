@@ -25,6 +25,37 @@
   background-color: white;
 }
 
+.modal__content-card-item {
+  padding: 0;
+  max-width: 498px;
+  min-height: 610px;
+}
+
+.modal__caption {
+  padding: 24px;
+}
+
+.modal__caption-title {
+  margin: 0;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.modal__weather {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.modal__image {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
 .modal__title {
   margin: 0;
   font-family: "CabinetGrotesk-Bold", Times, serif;
@@ -36,9 +67,16 @@
 .modal__close {
   position: absolute;
   border: none;
-  background-color: transparent;
   top: 20px;
   right: 28px;
+  background-image: url(../assets/Unionclose.png);
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+}
+
+.modal__close-card-item {
+  background-image: url(../assets/UnionCardItemClose.png);
 }
 
 .modal__form {

@@ -10,6 +10,7 @@ import ModalWithForm from "./ModalWithForm";
 import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
 import { getWeatherType } from "../utils/weatherApi";
+import ItemModal from "./ItemModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -18,6 +19,7 @@ function App() {
     city: "",
   });
   const [activeModal, setActiveModal] = useState("");
+  const [selectedCard, setSelectedCard] = useState({});
   const onClose = () => {
     setActiveModal("");
   };
@@ -29,6 +31,11 @@ function App() {
     if (e.target.classList.contains("modal")) {
       onClose();
     }
+  };
+
+  const handleItemClick = (item) => {
+    setActiveModal("preview");
+    setSelectedCard(item);
   };
 
   useEffect(() => {
@@ -61,7 +68,7 @@ function App() {
           weatherData={weatherData}
           handleButtonClick={handleButtonClick}
         />
-        <Main weatherData={weatherData} />
+        <Main weatherData={weatherData} handleItemClick={handleItemClick} />
         <ModalWithForm
           handleOutsideClick={handleOutsideClick}
           title="New garment"
@@ -108,6 +115,11 @@ function App() {
             </label>
           </fieldset>
         </ModalWithForm>
+        <ItemModal
+          activeModal={activeModal}
+          item={selectedCard}
+          onClose={onClose}
+        />
       </div>
     </div>
   );
