@@ -1,3 +1,68 @@
+export const weatherCardOptions = [
+  {
+    isDay: true,
+    condition: "clear",
+    url: new URL("../assets/sunnyDay.png", import.meta.url).href,
+  },
+
+  {
+    isDay: true,
+    condition: "cloudy",
+    url: new URL("../assets/cloudyDay.png", import.meta.url).href,
+  },
+
+  {
+    isDay: true,
+    condition: "rain",
+    url: new URL("../assets/rainyDay.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "storm",
+    url: new URL("../assets/stormyDay.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "snow",
+    url: new URL("../assets/snowyDay.png", import.meta.url).href,
+  },
+  {
+    isDay: true,
+    condition: "fog",
+    url: new URL("../assets/foggyDay.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "clear",
+    url: new URL("../assets/clearNight.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "cloudy",
+    url: new URL("../assets/cloudyNight.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "rain",
+    url: new URL("../assets/rainyNight.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "storm",
+    url: new URL("../assets/stormyNight.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "snow",
+    url: new URL("../assets/snowyNight.png", import.meta.url).href,
+  },
+  {
+    isDay: false,
+    condition: "fog",
+    url: new URL("../assets/foggyNight.png", import.meta.url).href,
+  },
+];
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -38,5 +103,5 @@ export const defaultClothingItems = [
 ];
 
 export const apiKey = "4b558621ec4046a076cdf83de80c8434";
-export const latitude = "21.315603";
-export const longitude = "-157.858093";
+export const latitude = "34.009958";
+export const longitude = "-81.072888";
