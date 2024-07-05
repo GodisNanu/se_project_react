@@ -2,6 +2,20 @@
   background-color: #f3f3f3;
 }
 
+.page__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(0, 3%, 6%);
+}
+
+.page__loading-image {
+  width: 100%; /* Adjust size as needed */
+  height: 100%;
+  margin: 100px;
+}
+
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
