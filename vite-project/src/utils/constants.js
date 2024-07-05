@@ -63,6 +63,20 @@ export const weatherCardOptions = [
   },
 ];
 
+export const defaultWeatherCards = [
+  {
+    isDay: true,
+    condition: "clear",
+    url: new URL("../assets/sunnyDay.png", import.meta.url).href,
+  },
+
+  {
+    isDay: false,
+    condition: "clear",
+    url: new URL("../assets/clearNight.png", import.meta.url).href,
+  },
+];
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -103,5 +117,5 @@ export const defaultClothingItems = [
 ];
 
 export const apiKey = "4b558621ec4046a076cdf83de80c8434";
-export const latitude = "34.009958";
-export const longitude = "-81.072888";
+export const latitude = "21.17429";
+export const longitude = "-86.84656";

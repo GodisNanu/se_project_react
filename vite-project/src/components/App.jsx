@@ -17,7 +17,10 @@ function App() {
     type: "",
     temp: { F: 999 },
     city: "",
+    isDay: "",
+    condition: "",
   });
+
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const onClose = () => {
@@ -43,6 +46,7 @@ function App() {
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+        debugger;
       })
       .catch(console.error);
   }, []);
