@@ -7,18 +7,18 @@ export const weatherCardOptions = [
 
   {
     isDay: true,
-    condition: "cloudy",
+    condition: ["cloudy", "clouds"],
     url: new URL("../assets/cloudyDay.png", import.meta.url).href,
   },
 
   {
     isDay: true,
-    condition: "rain",
+    condition: ["rain", "drizzle"],
     url: new URL("../assets/rainyDay.png", import.meta.url).href,
   },
   {
     isDay: true,
-    condition: "storm",
+    condition: ["storm", "thunderstorm", "tornado"],
     url: new URL("../assets/stormyDay.png", import.meta.url).href,
   },
   {
@@ -28,7 +28,16 @@ export const weatherCardOptions = [
   },
   {
     isDay: true,
-    condition: "fog",
+    condition: [
+      "fog",
+      "mist",
+      "smoke",
+      "dust",
+      "haze",
+      "sand",
+      "ash",
+      "squall",
+    ],
     url: new URL("../assets/foggyDay.png", import.meta.url).href,
   },
   {
@@ -38,17 +47,17 @@ export const weatherCardOptions = [
   },
   {
     isDay: false,
-    condition: "cloudy",
+    condition: ["cloudy", "clouds"],
     url: new URL("../assets/cloudyNight.png", import.meta.url).href,
   },
   {
     isDay: false,
-    condition: "rain",
+    condition: ["rain", "drizzle"],
     url: new URL("../assets/rainyNight.png", import.meta.url).href,
   },
   {
     isDay: false,
-    condition: "storm",
+    condition: ["storm", "thunderstorm", "tornado"],
     url: new URL("../assets/stormyNight.png", import.meta.url).href,
   },
   {
@@ -58,22 +67,17 @@ export const weatherCardOptions = [
   },
   {
     isDay: false,
-    condition: "fog",
+    condition: [
+      "fog",
+      "mist",
+      "smoke",
+      "dust",
+      "haze",
+      "sand",
+      "ash",
+      "squall",
+    ],
     url: new URL("../assets/foggyNight.png", import.meta.url).href,
-  },
-];
-
-export const defaultWeatherCards = [
-  {
-    isDay: true,
-    condition: "clear",
-    url: new URL("../assets/sunnyDay.png", import.meta.url).href,
-  },
-
-  {
-    isDay: false,
-    condition: "clear",
-    url: new URL("../assets/clearNight.png", import.meta.url).href,
   },
 ];
 
