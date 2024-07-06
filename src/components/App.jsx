@@ -118,13 +118,19 @@ function App() {
                   Slect the weather type:{" "}
                 </legend>
                 <label htmlFor="hot" className="modal__label modal__radio">
-                  <input id="hot" type="radio" className="modal__radio-input" />{" "}
+                  <input
+                    id="hot"
+                    type="radio"
+                    name="weather_type"
+                    className="modal__radio-input"
+                  />{" "}
                   Hot
                 </label>
                 <label htmlFor="warm" className="modal__label modal__radio ">
                   <input
                     id="warm"
                     type="radio"
+                    name="weather_type"
                     className="modal__radio-input "
                   />{" "}
                   Warm
@@ -133,6 +139,7 @@ function App() {
                   <input
                     id="chilly"
                     type="radio"
+                    name="weather_type"
                     className="modal__radio-input "
                   />
                   Chilly
@@ -141,6 +148,7 @@ function App() {
                   <input
                     id="cold"
                     type="radio"
+                    name="weather_type"
                     className="modal__radio-input "
                   />{" "}
                   Cold
