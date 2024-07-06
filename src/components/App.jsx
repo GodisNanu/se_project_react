@@ -12,6 +12,7 @@ import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
 import { getWeatherType } from "../utils/weatherApi";
 import ItemModal from "./ItemModal";
+import Footer from "./Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -152,6 +153,7 @@ function App() {
               item={selectedCard}
               onClose={onClose}
             />
+            <Footer />
           </div>
         </div>
       )}

@@ -122,8 +122,16 @@
   margin-top: 22px;
   margin-bottom: 0;
   padding: 8px 16px;
-  background-color: #0000004d;
+  background-color: black;
   border: none;
   border-radius: 5px;
   color: #ffffff;
+}
+
+.modal__submit:hover {
+  background: #00000099;
+}
+
+.modal__submit:disabled {
+  background: #0000004d;
 }

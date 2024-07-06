@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 200px;
+}
+
+.footer__signature {
+  font-family: "CabinetGrotesk-Medium", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.footer__date {
+  font-family: "CabinetGrotesk-Medium", Times, serif;
+  font-weight: 500;
+  font-size: 16px;
+}
