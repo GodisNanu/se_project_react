@@ -33,7 +33,6 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
-  // const [clicked, setClicked] = useState("");
   const onClose = () => {
     setActiveModal("");
   };
@@ -51,13 +50,6 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(item);
   };
-
-  /* const handleRadioClick = () => {
-    console.log("is clicked");
-    if (setClicked("modal__radio modal__label")) {
-      setClicked("modal__label");
-    }
-  };*/
 
   useEffect(() => {
     getWeather(latitude, longitude, apiKey)
@@ -131,7 +123,6 @@ function App() {
                   htmlFor="hot"
                   className="modal__label modal__radio"
                   id="modal__radio-button"
-                  //onClick={handleRadioClick}
                 >
                   <input
                     id="hot"
