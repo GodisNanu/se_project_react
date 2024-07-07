@@ -38,9 +38,9 @@ function App() {
     setActiveModal("");
   };
 
-  const handleButtonClick = () => {
+  function handleButtonClick() {
     setActiveModal("add-garment");
-  };
+  }
   const handleOutsideClick = (e) => {
     if (e.target.classList.contains("modal")) {
       onClose();
@@ -99,7 +99,7 @@ function App() {
               handleOutsideClick={handleOutsideClick}
               title="New garment"
               buttonText="Add garment"
-              activeModal={activeModal}
+              isOpen={activeModal === "add-garment"}
               onClose={onClose}
             >
               <label htmlFor="name" className="modal__label">

@@ -134,6 +134,8 @@
   border: none;
   border-radius: 5px;
   color: #ffffff;
+  height: 36px;
+  width: 124px;
 }
 
 .modal__submit:hover {
