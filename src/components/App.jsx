@@ -32,6 +32,8 @@ function App() {
 
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+
+  // const [clicked, setClicked] = useState("");
   const onClose = () => {
     setActiveModal("");
   };
@@ -49,6 +51,13 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(item);
   };
+
+  /* const handleRadioClick = () => {
+    console.log("is clicked");
+    if (setClicked("modal__radio modal__label")) {
+      setClicked("modal__label");
+    }
+  };*/
 
   useEffect(() => {
     getWeather(latitude, longitude, apiKey)
@@ -68,6 +77,7 @@ function App() {
     };
 
     document.addEventListener("keydown", handleEscClose);
+
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
@@ -117,41 +127,58 @@ function App() {
                   {" "}
                   Slect the weather type:{" "}
                 </legend>
-                <label htmlFor="hot" className="modal__label modal__radio">
+                <label
+                  htmlFor="hot"
+                  className="modal__label modal__radio"
+                  id="modal__radio-button"
+                  //onClick={handleRadioClick}
+                >
                   <input
                     id="hot"
                     type="radio"
                     name="weather_type"
                     className="modal__radio-input"
                   />{" "}
-                  Hot
+                  <span className="modal__radio-text"> Hot </span>
                 </label>
-                <label htmlFor="warm" className="modal__label modal__radio ">
+                <label
+                  htmlFor="warm"
+                  className="modal__label modal__radio "
+                  id="modal__radio-button"
+                >
                   <input
                     id="warm"
                     type="radio"
                     name="weather_type"
                     className="modal__radio-input "
                   />{" "}
-                  Warm
+                  <span className="modal__radio-text">Warm</span>
                 </label>
-                <label htmlFor="chilly" className="modal__label modal__radio">
+                <label
+                  htmlFor="chilly"
+                  className="modal__label modal__radio"
+                  id="modal__radio-button"
+                >
                   <input
                     id="chilly"
                     type="radio"
                     name="weather_type"
                     className="modal__radio-input "
                   />
-                  Chilly
+                  <span className="modal__radio-text">Chilly</span>
                 </label>
-                <label htmlFor="cold" className="modal__label modal__radio">
+                <label
+                  htmlFor="cold"
+                  className="modal__label modal__radio"
+                  id="modal__radio-button"
+                >
                   <input
                     id="cold"
                     type="radio"
                     name="weather_type"
                     className="modal__radio-input "
                   />{" "}
-                  Cold
+                  <span className="modal__radio-text">Cold</span>
                 </label>
               </fieldset>
             </ModalWithForm>

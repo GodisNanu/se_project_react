@@ -111,6 +111,14 @@
   font-size: 16px;
 }
 
+.modal__radio {
+  color: #00000080;
+}
+
+.modal__radio-input:checked ~ span {
+  color: black;
+}
+
 .modal__legend {
   font-family: "CabinetGrotesk-Bold", Times, serif;
   font-weight: 700;
