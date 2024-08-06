@@ -15,8 +15,13 @@
   margin: 0;
 }
 
-.header__add-clothes-button {
+.header__switch-container {
+  display: flex;
   margin: 0 20px 0 auto;
+}
+
+.header__add-clothes-button {
+  margin: 0 20px 0 0;
   border: none;
   font-family: "CabinetGrotesk-Bold", Times, serif;
   font-size: 20px;

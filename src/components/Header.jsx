@@ -1,4 +1,5 @@
 import "../blocks/header.css";
+import ToggleSwitch from "./ToggleSwitch";
 
 const currentDate = new Date().toLocaleString("default", {
   month: "long",
@@ -16,6 +17,9 @@ function Header({ weatherData, handleButtonClick }) {
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+      <div className="header__switch-container">
+        <ToggleSwitch />
+      </div>
       <button
         onClick={handleButtonClick}
         type="button"
@@ -23,6 +27,7 @@ function Header({ weatherData, handleButtonClick }) {
       >
         + Add clothes
       </button>
+
       <div className="header__user-container">
         <p className="header__username"> Terrence Tegegne </p>
         <img
