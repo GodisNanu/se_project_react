@@ -2,13 +2,14 @@ import { useState, useContext, useEffect } from "react";
 import "../blocks/toggle-switch.css";
 import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
 
-const ToggleSwitch = () => {
+const ToggleSwitch = ({
+  selectedLabel,
+  isChecked,
+  handleToggleSwitchChange,
+}) => {
   /* const { currentTempUnit, handleToggleSwitchChange } = useContext(
     CurrentTempUnitContext
   );
-
-  const [isChecked, setIsChecked] = useState(currentTempUnit === "C");
-  useEffect(() => setIsChecked(currentTempUnit === "C"), [currentTempUnit]);
 */
   return (
     <div className="toggle-switch">
@@ -18,11 +19,21 @@ const ToggleSwitch = () => {
         name="toggle-switch-checkbox"
         id={"toggle-switch-new"}
         // value={currentTempUnit}
-        // onChange={handleToggleSwitchChange}
-        // checked={isChecked}
-      />
+        onChange={handleToggleSwitchChange}
+        checked={isChecked}
+      />{" "}
       <label className="toggle-switch__label" htmlFor={"toggle-switch-new"}>
+        {" "}
+        <p
+          className={
+            !isChecked ? (selectedLabel = "toggle-switch__temp-selected") : ""
+          }
+        >
+          {" "}
+          F{" "}
+        </p>
         <span className="toggle-switch__button " />
+        <p className={isChecked ? selectedLabel : ""}> C </p>
       </label>
     </div>
   );

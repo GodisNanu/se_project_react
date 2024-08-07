@@ -6,7 +6,13 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header({ weatherData, handleButtonClick }) {
+function Header({
+  weatherData,
+  isChecked,
+  selectedLabel,
+  handleToggleSwitchChange,
+  handleButtonClick,
+}) {
   return (
     <header className="header">
       <img
@@ -18,7 +24,11 @@ function Header({ weatherData, handleButtonClick }) {
         {currentDate}, {weatherData.city}
       </p>
       <div className="header__switch-container">
-        <ToggleSwitch />
+        <ToggleSwitch
+          selectedLabel={selectedLabel}
+          isChecked={isChecked}
+          handleToggleSwitchChange={handleToggleSwitchChange}
+        />
       </div>
       <button
         onClick={handleButtonClick}
