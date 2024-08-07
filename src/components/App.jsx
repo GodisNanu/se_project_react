@@ -42,9 +42,9 @@ function App() {
     setActiveModal("add-garment");
   }
 
-  const [currentTempUnit, setCurrentTempUnit] = useState("C");
-  const [isChecked, setIsChecked] = useState(currentTempUnit === "F");
-  useEffect(() => setIsChecked(currentTempUnit === "F"), [currentTempUnit]);
+  const [currentTempUnit, setCurrentTempUnit] = useState("F");
+  const [isChecked, setIsChecked] = useState(currentTempUnit === "C");
+  useEffect(() => setIsChecked(currentTempUnit === "C"), [currentTempUnit]);
   const [selectedLabel, setSelectedLabel] = useState("");
 
   const handleToggleSwitchChange = () => {
@@ -52,9 +52,6 @@ function App() {
     selectedLabel === "toggle-switch__temp-selected"
       ? setSelectedLabel("")
       : setSelectedLabel("toggle-switch__temp-selected");
-
-    console.log("toggle switched!");
-    console.log(currentTempUnit);
   };
 
   const handleOutsideClick = (e) => {
@@ -104,13 +101,15 @@ function App() {
             <div className="page__content">
               <Header
                 weatherData={weatherData}
-                isChecked={isChecked}
+                currentTempUnit={currentTempUnit}
                 selectedLabel={selectedLabel}
+                isChecked={isChecked}
                 handleToggleSwitchChange={handleToggleSwitchChange}
                 handleButtonClick={handleButtonClick}
               />
               <Main
                 weatherData={weatherData}
+                currentTempUnit={currentTempUnit}
                 handleItemClick={handleItemClick}
               />
               <ModalWithForm

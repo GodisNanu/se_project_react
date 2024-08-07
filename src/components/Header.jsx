@@ -8,8 +8,9 @@ const currentDate = new Date().toLocaleString("default", {
 
 function Header({
   weatherData,
-  isChecked,
+  currentTempUnit,
   selectedLabel,
+  isChecked,
   handleToggleSwitchChange,
   handleButtonClick,
 }) {
@@ -25,9 +26,10 @@ function Header({
       </p>
       <div className="header__switch-container">
         <ToggleSwitch
-          selectedLabel={selectedLabel}
-          isChecked={isChecked}
+          currentTempUnit={currentTempUnit}
           handleToggleSwitchChange={handleToggleSwitchChange}
+          isChecked={isChecked}
+          selectedLabel={selectedLabel}
         />
       </div>
       <button

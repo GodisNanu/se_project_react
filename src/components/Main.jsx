@@ -2,13 +2,17 @@ import WeatherCard from "./WeatherCard.jsx";
 import { defaultClothingItems } from "../utils/constants.js";
 import ItemCard from "./ItemCard.jsx";
 
-function Main({ weatherData, handleItemClick }) {
+function Main({ weatherData, currentTempUnit, handleItemClick }) {
   return (
     <main className="main">
-      <WeatherCard weatherData={weatherData} />
+      <WeatherCard
+        weatherData={weatherData}
+        currentTempUnit={currentTempUnit}
+      />
       <section className="cards">
         <p className="cards__text">
-          Today is {weatherData.temp.F} &deg; F/ You may want to wear:
+          Today is {weatherData.temp[currentTempUnit]} &deg; {currentTempUnit}/
+          You may want to wear:
         </p>
         <ul className="cards__list">
           {defaultClothingItems

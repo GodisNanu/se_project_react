@@ -3,9 +3,10 @@ import "../blocks/toggle-switch.css";
 import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
 
 const ToggleSwitch = ({
-  selectedLabel,
-  isChecked,
+  currentTempUnit,
   handleToggleSwitchChange,
+  isChecked,
+  selectedLabel,
 }) => {
   /* const { currentTempUnit, handleToggleSwitchChange } = useContext(
     CurrentTempUnitContext
@@ -24,16 +25,9 @@ const ToggleSwitch = ({
       />{" "}
       <label className="toggle-switch__label" htmlFor={"toggle-switch-new"}>
         {" "}
-        <p
-          className={
-            !isChecked ? (selectedLabel = "toggle-switch__temp-selected") : ""
-          }
-        >
-          {" "}
-          F{" "}
-        </p>
+        <p className={!isChecked ? "toggle-switch__temp-selected" : ""}> F </p>
         <span className="toggle-switch__button " />
-        <p className={isChecked ? selectedLabel : ""}> C </p>
+        <p className={isChecked ? "toggle-switch__temp-selected" : ""}> C </p>
       </label>
     </div>
   );
