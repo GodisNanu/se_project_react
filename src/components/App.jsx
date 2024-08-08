@@ -5,8 +5,10 @@ import Loading from "./Loading";
 import { latitude } from "../utils/constants";
 import { longitude } from "../utils/constants";
 import { apiKey } from "../utils/constants";
+import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
+import Profile from "./Profile";
 import ModalWithForm from "./ModalWithForm";
 import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
@@ -14,6 +16,7 @@ import { getWeatherType } from "../utils/weatherApi";
 import ItemModal from "./ItemModal";
 import Footer from "./Footer";
 import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
+import api from "../utils/api";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +34,7 @@ function App() {
     condition: "",
   });
 
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -74,6 +78,31 @@ function App() {
       .catch(console.error);
   }, [setLoading]);
 
+  /* useEffect(() => {
+    api
+      .getItemList()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleAddItemSubmit = (item) => {
+    api
+      .addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        onClose();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleCardDelete = (card) => {
+    api.removeItem(card.id).then(()=> {
+      setClothingItems((cards)=> cards.filter((c) => c.id |== card.id));
+    }).catch((err)=> console.log(err));
+  } */
+
   useEffect(() => {
     if (!activeModal) return;
     const handleEscClose = (e) => {
@@ -107,11 +136,20 @@ function App() {
                 handleToggleSwitchChange={handleToggleSwitchChange}
                 handleButtonClick={handleButtonClick}
               />
-              <Main
-                weatherData={weatherData}
-                currentTempUnit={currentTempUnit}
-                handleItemClick={handleItemClick}
-              />
+
+              <Routes>
+                <Route
+                  path="/se_project_react"
+                  element={
+                    <Main
+                      weatherData={weatherData}
+                      currentTempUnit={currentTempUnit}
+                      handleItemClick={handleItemClick}
+                    />
+                  }
+                />
+                <Route path="se_project_react/profile" element={<Profile />} />
+              </Routes>
               <ModalWithForm
                 handleOutsideClick={handleOutsideClick}
                 title="New garment"

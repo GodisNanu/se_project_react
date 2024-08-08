@@ -1,5 +1,6 @@
 import "../blocks/header.css";
 import ToggleSwitch from "./ToggleSwitch";
+import { Link } from "react-router-dom";
 
 const currentDate = new Date().toLocaleString("default", {
   month: "long",
@@ -16,11 +17,13 @@ function Header({
 }) {
   return (
     <header className="header">
-      <img
-        src="./src/assets/logo.svg"
-        alt="wtwr logo"
-        className="header__logo"
-      />
+      <Link to="/se_project_react">
+        <img
+          src="./src/assets/logo.svg"
+          alt="wtwr logo"
+          className="header__logo"
+        />
+      </Link>
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
       </p>
@@ -42,11 +45,13 @@ function Header({
 
       <div className="header__user-container">
         <p className="header__username"> Terrence Tegegne </p>
-        <img
-          src="./src/assets/avatar.png"
-          alt="user avatar"
-          className="header__avatar"
-        />
+        <Link to="/se_project_react/profile">
+          <img
+            src="./src/assets/avatar.png"
+            alt="user avatar"
+            className="header__avatar"
+          />
+        </Link>
       </div>
     </header>
   );
