@@ -1,4 +1,4 @@
-// inport profile css
+import "../blocks/profile.css";
 // inport sidebar
 //import clothes section
 import { defaultClothingItems } from "../utils/constants";
@@ -17,6 +17,7 @@ const Profile = (/* { cards, onCardClick, onCardDelete, onAddNewClick }*/) => (
     <section className="profile__clothes">
       <p className="profile__clothes-title"> Your items </p>
       <button className="profile__clothes-add-button"> + Add new </button>
+
       <ul className="profile__clothes-list">
         {defaultClothingItems.map((item) => {
           return <ItemCard key={item._id} item={item} />;
