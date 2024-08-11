@@ -13,7 +13,7 @@ const getItemList = () => {
 };
 
 const addItem = (name, weather, imageUrl) => {
-  return fetch(`${Base_Url}items`, {
+  return fetch(`${Base_Url}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
