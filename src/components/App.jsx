@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import Main from "./Main";
 import Profile from "./Profile";
-import ModalWithForm from "./ModalWithForm";
+import AddItemModal from "./AddItemModal";
 import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
 import { getWeatherType } from "../utils/weatherApi";
@@ -78,7 +78,7 @@ function App() {
       .catch(console.error);
   }, [setLoading]);
 
-  /* useEffect(() => {
+  useEffect(() => {
     api
       .getItemList()
       .then((items) => {
@@ -87,9 +87,9 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleAddItemSubmit = (item) => {
+  const handleAddItem = (name, weather, imageUrl) => {
     api
-      .addItem(item)
+      .addItem(name, weather, imageUrl)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         onClose();
@@ -97,7 +97,7 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  const handleCardDelete = (card) => {
+  /* const handleCardDelete = (card) => {
     api.removeItem(card.id).then(()=> {
       setClothingItems((cards)=> cards.filter((c) => c.id |== card.id));
     }).catch((err)=> console.log(err));
@@ -148,94 +148,17 @@ function App() {
                     />
                   }
                 />
-                <Route path="se_project_react/profile" element={<Profile />} />
+                <Route
+                  path="se_project_react/profile"
+                  element={<Profile handleButtonClick={handleButtonClick} />}
+                />
               </Routes>
-              <ModalWithForm
+              <AddItemModal
                 handleOutsideClick={handleOutsideClick}
-                title="New garment"
-                buttonText="Add garment"
                 isOpen={activeModal === "add-garment"}
+                handleAddItem={handleAddItem}
                 onClose={onClose}
-              >
-                <label htmlFor="name" className="modal__label">
-                  Name{" "}
-                  <input
-                    type="
-        text"
-                    className="modal__input"
-                    id="name"
-                    placeholder="Name"
-                  />
-                </label>
-                <label htmlFor="imageUrl" className="modal__label">
-                  Image{" "}
-                  <input
-                    type="
-        text"
-                    className="modal__input "
-                    id="imageUrl"
-                    placeholder="Image URL"
-                  />
-                </label>
-                <fieldset className="modal__radio-buttons">
-                  <legend className="modal__legend">
-                    {" "}
-                    Slect the weather type:{" "}
-                  </legend>
-                  <label
-                    htmlFor="hot"
-                    className="modal__label modal__radio"
-                    id="modal__radio-button"
-                  >
-                    <input
-                      id="hot"
-                      type="radio"
-                      name="weather_type"
-                      className="modal__radio-input"
-                    />{" "}
-                    <span className="modal__radio-text"> Hot </span>
-                  </label>
-                  <label
-                    htmlFor="warm"
-                    className="modal__label modal__radio "
-                    id="modal__radio-button"
-                  >
-                    <input
-                      id="warm"
-                      type="radio"
-                      name="weather_type"
-                      className="modal__radio-input "
-                    />{" "}
-                    <span className="modal__radio-text">Warm</span>
-                  </label>
-                  <label
-                    htmlFor="chilly"
-                    className="modal__label modal__radio"
-                    id="modal__radio-button"
-                  >
-                    <input
-                      id="chilly"
-                      type="radio"
-                      name="weather_type"
-                      className="modal__radio-input "
-                    />
-                    <span className="modal__radio-text">Chilly</span>
-                  </label>
-                  <label
-                    htmlFor="cold"
-                    className="modal__label modal__radio"
-                    id="modal__radio-button"
-                  >
-                    <input
-                      id="cold"
-                      type="radio"
-                      name="weather_type"
-                      className="modal__radio-input "
-                    />{" "}
-                    <span className="modal__radio-text">Cold</span>
-                  </label>
-                </fieldset>
-              </ModalWithForm>
+              />
               <ItemModal
                 handleOutsideClick={handleOutsideClick}
                 activeModal={activeModal}

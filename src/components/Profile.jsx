@@ -4,7 +4,7 @@ import "../blocks/profile.css";
 import { defaultClothingItems } from "../utils/constants";
 import ItemCard from "./ItemCard";
 
-const Profile = (/* { cards, onCardClick, onCardDelete, onAddNewClick }*/) => (
+const Profile = ({ handleButtonClick }) => (
   <div className="profile">
     <section className="profile__sidebar">
       <img
@@ -16,7 +16,13 @@ const Profile = (/* { cards, onCardClick, onCardDelete, onAddNewClick }*/) => (
     </section>
     <section className="profile__clothes">
       <p className="profile__clothes-title"> Your items </p>
-      <button className="profile__clothes-add-button"> + Add new </button>
+      <button
+        className="profile__clothes-add-button"
+        onClick={handleButtonClick}
+      >
+        {" "}
+        + Add new{" "}
+      </button>
 
       <ul className="profile__clothes-list">
         {defaultClothingItems.map((item) => {

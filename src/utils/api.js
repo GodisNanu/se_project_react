@@ -12,8 +12,8 @@ const getItemList = () => {
   }).then(handleServerResponse);
 };
 
-const addItem = ({ name, weather, imageUrl }) => {
-  return fetch(`${Base_Url}/items`, {
+const addItem = (name, weather, imageUrl) => {
+  return fetch(`${Base_Url}items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

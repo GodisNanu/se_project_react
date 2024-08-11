@@ -8,6 +8,7 @@ function ModalWithForm({
   isOpen,
   onClose,
   handleOutsideClick,
+  handleSubmit,
 }) {
   return (
     <div
@@ -19,7 +20,11 @@ function ModalWithForm({
         <button onClick={onClose} src="" className="modal__close "></button>
         <form action="" className="modal__form">
           {children}
-          <button type="submit" className="modal__submit">
+          <button
+            type="submit"
+            className="modal__submit"
+            onClick={handleSubmit}
+          >
             {" "}
             {buttonText}{" "}
           </button>
