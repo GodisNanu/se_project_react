@@ -39,7 +39,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
 
-  const onClose = () => {
+  const onClose = (resetValues) => {
     setActiveModal("");
   };
 

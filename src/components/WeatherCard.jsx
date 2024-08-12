@@ -1,7 +1,5 @@
 import "../blocks/weather-card.css";
 import { weatherCardOptions } from "../utils/constants";
-import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
-import { useContext } from "react";
 
 function WeatherCard({ weatherData, currentTempUnit }) {
   const weatherCardDisplay = weatherCardOptions.filter((option) => {

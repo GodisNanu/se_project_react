@@ -9,6 +9,7 @@ function ModalWithForm({
   onClose,
   handleOutsideClick,
   handleSubmit,
+  isValid,
 }) {
   return (
     <div
@@ -23,6 +24,7 @@ function ModalWithForm({
           <button
             type="submit"
             className="modal__submit"
+            disabled={!isValid}
             onClick={handleSubmit}
           >
             {" "}

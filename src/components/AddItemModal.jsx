@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
+import { validateBasicUrl, validateTextInput } from "./FormValidation";
 
 const AddItemModal = ({
   handleOutsideClick,
@@ -7,53 +8,73 @@ const AddItemModal = ({
   handleAddItem,
   onClose,
 }) => {
-  // declare state for each input field
-  // const [inputs, resetInputs] = useState("");
   const [nameInput, setNameInput] = useState("");
   const [weatherInput, setWeatherInput] = useState("");
   const [urlInput, setUrlInput] = useState("");
+  const [error, setError] = useState("");
+  const [error2, setError2] = useState("");
+  const [isValid, setIsValid] = useState(false);
   const resetInputs = () => {
     setNameInput("");
     setWeatherInput("");
     setUrlInput("");
   };
-  // use a useEffect hook to reset the input field state to empty strings when
-  // the modal is opened
+
   useEffect(() => {
     if (isOpen) {
       resetInputs();
     }
   }, [isOpen]);
 
-  // create onChange handlers corresponding to each state variable
-
   const handleNameChange = (e) => {
-    setNameInput(e.target.value);
+    const newValue = e.target.value;
+    setNameInput(newValue);
+    const validationError = validateTextInput(newValue);
+    setError(validationError ? validationError : "");
+    const newErrors = { ...error };
+    newErrors.name = validationError;
+    const hasErrors = Object.values(newErrors).some((error) => error);
+    setIsValid(!hasErrors);
   };
   const handleWeatherChange = (e) => {
     setWeatherInput(e.target.value);
   };
   const handleUrlChange = (e) => {
-    setUrlInput(e.target.value);
+    const newUrl = e.target.value;
+    setUrlInput(newUrl);
+    const validationError2 = validateBasicUrl(newUrl);
+    setError2(validationError2 ? validationError2 : "");
+    const newErrors = { ...error };
+    newErrors.name = validationError2;
+    const hasErrors = Object.values(newErrors).some((error) => error);
+    setIsValid(!hasErrors);
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleAddItem(nameInput, weatherInput, urlInput);
+    if (isValid) {
+      handleAddItem(nameInput, weatherInput, urlInput);
+      resetInputs();
+      onClose();
+    }
+  }
+
+  function handleModalClose() {
+    setError("");
+    setError2("");
     resetInputs();
     onClose();
   }
-
   return (
     <>
-      {/* don't forget to pass appropriate props to ModalWithForm */}
       <ModalWithForm
         handleOutsideClick={handleOutsideClick}
         title="New garment"
         buttonText="Add garment"
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={handleModalClose}
         handleSubmit={handleSubmit}
+        isValid={isValid}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -66,18 +87,20 @@ const AddItemModal = ({
             onChange={handleNameChange}
             value={nameInput}
           />
+          {error && <p className="modal__input-error">{error}</p>}
         </label>
         <label htmlFor="imageUrl" className="modal__label">
           Image{" "}
           <input
             type="
-        text"
+        link"
             className="modal__input "
             id="imageUrl"
             placeholder="Image URL"
             onChange={handleUrlChange}
             value={urlInput}
           />
+          {error2 && <p className="modal__input-error">{error2}</p>}
         </label>
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend"> Slect the weather type: </legend>
