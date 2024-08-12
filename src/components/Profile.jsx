@@ -1,10 +1,9 @@
 import "../blocks/profile.css";
 // inport sidebar
 //import clothes section
-import { defaultClothingItems } from "../utils/constants";
 import ItemCard from "./ItemCard";
 
-const Profile = ({ handleButtonClick }) => (
+const Profile = ({ handleButtonClick, handleItemClick, clothingItems }) => (
   <div className="profile">
     <section className="profile__sidebar">
       <img
@@ -25,8 +24,14 @@ const Profile = ({ handleButtonClick }) => (
       </button>
 
       <ul className="profile__clothes-list">
-        {defaultClothingItems.map((item) => {
-          return <ItemCard key={item._id} item={item} />;
+        {clothingItems.map((item) => {
+          return (
+            <ItemCard
+              key={item._id}
+              item={item}
+              onItemClick={handleItemClick}
+            />
+          );
         })}
       </ul>
     </section>

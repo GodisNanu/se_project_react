@@ -1,8 +1,12 @@
 import WeatherCard from "./WeatherCard.jsx";
-import { defaultClothingItems } from "../utils/constants.js";
 import ItemCard from "./ItemCard.jsx";
 
-function Main({ weatherData, currentTempUnit, handleItemClick }) {
+function Main({
+  weatherData,
+  currentTempUnit,
+  handleItemClick,
+  clothingItems,
+}) {
   return (
     <main className="main">
       <WeatherCard
@@ -15,7 +19,7 @@ function Main({ weatherData, currentTempUnit, handleItemClick }) {
           You may want to wear:
         </p>
         <ul className="cards__list">
-          {defaultClothingItems
+          {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
             })

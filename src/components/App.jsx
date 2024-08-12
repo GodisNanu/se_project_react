@@ -17,6 +17,7 @@ import ItemModal from "./ItemModal";
 import Footer from "./Footer";
 import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
 import api from "../utils/api";
+import DeleteCardModal from "./DeleteCardModal";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -97,11 +98,20 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  /* const handleCardDelete = (card) => {
-    api.removeItem(card.id).then(()=> {
-      setClothingItems((cards)=> cards.filter((c) => c.id |== card.id));
-    }).catch((err)=> console.log(err));
-  } */
+  const handleDeleteClick = (item) => {
+    setActiveModal("delete-item");
+    setSelectedCard(item);
+  };
+
+  const handleDeleteItem = (item) => {
+    api
+      .removeItem(item._id)
+      .then(() => {
+        setClothingItems(clothingItems.filter((card) => card._id !== item._id));
+        onClose();
+      })
+      .catch((err) => console.log(err));
+  };
 
   useEffect(() => {
     if (!activeModal) return;
@@ -145,12 +155,19 @@ function App() {
                       weatherData={weatherData}
                       currentTempUnit={currentTempUnit}
                       handleItemClick={handleItemClick}
+                      clothingItems={clothingItems}
                     />
                   }
                 />
                 <Route
                   path="se_project_react/profile"
-                  element={<Profile handleButtonClick={handleButtonClick} />}
+                  element={
+                    <Profile
+                      handleButtonClick={handleButtonClick}
+                      handleItemClick={handleItemClick}
+                      clothingItems={clothingItems}
+                    />
+                  }
                 />
               </Routes>
               <AddItemModal
@@ -164,6 +181,14 @@ function App() {
                 activeModal={activeModal}
                 item={selectedCard}
                 onClose={onClose}
+                handleDeleteClick={handleDeleteClick}
+              />
+              <DeleteCardModal
+                handleOutsideClick={handleOutsideClick}
+                isOpen={activeModal === "delete-item"}
+                handleDeleteItem={handleDeleteItem}
+                onClose={onClose}
+                item={selectedCard}
               />
               <Footer />
             </div>

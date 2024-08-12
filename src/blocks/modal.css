@@ -11,6 +11,51 @@
   visibility: hidden;
 }
 
+.modal__confirm {
+  visibility: hidden;
+  max-width: 680px;
+  min-height: 280px;
+  position: absolute;
+  display: flex;
+  top: 25%;
+  right: 35%;
+}
+
+.modal__confirm-title {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 48px;
+  text-align: center;
+}
+
+.modal__confirm-delete-button {
+  color: #ff4d00;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  background: #ffffff;
+  position: absolute;
+  bottom: 28%;
+  right: 35%;
+  cursor: pointer;
+}
+
+.modal__cancel-button {
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  background: #ffffff;
+  position: absolute;
+  right: 42%;
+  cursor: pointer;
+}
+
 .modal_opened {
   visibility: visible;
 }
@@ -73,6 +118,7 @@
   width: 16px;
   height: 16px;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .modal__close-card-item {
@@ -144,4 +190,17 @@
 
 .modal__submit:disabled {
   background: #0000004d;
+}
+
+.modal__delete-item-button {
+  position: relative;
+  color: red;
+  border: none;
+  left: 374px;
+  bottom: 116px;
+  background-color: #ffffff;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
 }

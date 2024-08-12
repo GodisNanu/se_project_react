@@ -1,6 +1,12 @@
 import "../blocks/modal.css";
 
-function ItemModal({ handleOutsideClick, activeModal, item, onClose }) {
+function ItemModal({
+  handleOutsideClick,
+  activeModal,
+  item,
+  onClose,
+  handleDeleteClick,
+}) {
   return (
     <div
       onClick={handleOutsideClick}
@@ -16,6 +22,14 @@ function ItemModal({ handleOutsideClick, activeModal, item, onClose }) {
           <h2 className="modal__caption-title">{item.name}</h2>
           <p className="modal__weather">Weather: {item.weather}</p>
         </div>
+        <button
+          className="modal__delete-item-button"
+          onClick={() => {
+            handleDeleteClick(item);
+          }}
+        >
+          Delete item
+        </button>
       </div>
     </div>
   );

@@ -29,21 +29,18 @@ const AddItemModal = ({
 
   const handleNameChange = (e) => {
     setNameInput(e.target.value);
-    console.log("name changed");
   };
   const handleWeatherChange = (e) => {
     setWeatherInput(e.target.value);
-    console.log("weather changed");
   };
   const handleUrlChange = (e) => {
     setUrlInput(e.target.value);
-    console.log("url changed");
   };
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(nameInput, weatherInput, urlInput);
     handleAddItem(nameInput, weatherInput, urlInput);
+    resetInputs();
     onClose();
   }
 
@@ -67,6 +64,7 @@ const AddItemModal = ({
             id="name"
             placeholder="Name"
             onChange={handleNameChange}
+            value={nameInput}
           />
         </label>
         <label htmlFor="imageUrl" className="modal__label">
@@ -78,6 +76,7 @@ const AddItemModal = ({
             id="imageUrl"
             placeholder="Image URL"
             onChange={handleUrlChange}
+            value={urlInput}
           />
         </label>
         <fieldset className="modal__radio-buttons">
@@ -94,6 +93,7 @@ const AddItemModal = ({
               className="modal__radio-input"
               value={"hot"}
               onChange={handleWeatherChange}
+              checked={weatherInput === "hot"}
             />{" "}
             <span className="modal__radio-text"> Hot </span>
           </label>
@@ -109,6 +109,7 @@ const AddItemModal = ({
               className="modal__radio-input "
               value={"warm"}
               onChange={handleWeatherChange}
+              checked={weatherInput === "warm"}
             />{" "}
             <span className="modal__radio-text">Warm</span>
           </label>
@@ -124,6 +125,7 @@ const AddItemModal = ({
               className="modal__radio-input "
               value={"chilly"}
               onChange={handleWeatherChange}
+              checked={weatherInput === "chilly"}
             />
             <span className="modal__radio-text">Chilly</span>
           </label>
@@ -139,6 +141,7 @@ const AddItemModal = ({
               className="modal__radio-input "
               value={"cold"}
               onChange={handleWeatherChange}
+              checked={weatherInput === "cold"}
             />{" "}
             <span className="modal__radio-text">Cold</span>
           </label>
