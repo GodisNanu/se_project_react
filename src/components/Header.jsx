@@ -17,7 +17,7 @@ function Header({
 }) {
   return (
     <header className="header">
-      <Link to="/se_project_react">
+      <Link to="/">
         <img
           src="./src/assets/logo.svg"
           alt="wtwr logo"
@@ -45,7 +45,7 @@ function Header({
 
       <div className="header__user-container">
         <p className="header__username"> Terrence Tegegne </p>
-        <Link to="/se_project_react/profile">
+        <Link to="/profile">
           <img
             src="./src/assets/avatar.png"
             alt="user avatar"
