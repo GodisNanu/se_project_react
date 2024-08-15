@@ -1,4 +1,4 @@
-export function validateTextInput(value) {
+export function ValidateTextInput(value) {
   if (value.length < 1) {
     return "Field is required";
   } else if (/\s\s/.test(value)) {
@@ -9,7 +9,7 @@ export function validateTextInput(value) {
   return true;
 }
 
-export function validateBasicUrl(url) {
+export function ValidateBasicUrl(url) {
   const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z]{2,6})([/\w .-]*)*\/?$/;
   if (url.length < 1) {
     return "Field is required";
