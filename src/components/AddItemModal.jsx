@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
-import { ValidateBasicUrl, ValidateTextInput } from "./FormValidation";
+import { ValidateBasicUrl, ValidateTextInput } from "../FormValidation";
 
 const AddItemModal = ({
   handleOutsideClick,
