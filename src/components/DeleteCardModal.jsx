@@ -25,9 +25,7 @@ const DeleteCardModal = ({
                 handleDeleteItem(item);
               }}
             >
-              <style><
               {isLoading ? "Saving..." : "Yes, delete item"}
-              </style>
             </button>
             <button className="modal__cancel-button" onClick={onClose}>
               Cancel

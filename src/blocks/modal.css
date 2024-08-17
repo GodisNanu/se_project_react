@@ -222,6 +222,7 @@
   cursor: pointer;
 }
 
+/* not sure why this media query isn't working */
 @media screen and (width <= 405px) {
   .modal__confirm-delete-button {
     bottom: 20%;

@@ -12,7 +12,6 @@ import Profile from "./Profile";
 import AddItemModal from "./AddItemModal";
 import { getWeather } from "../utils/weatherApi";
 import { filterWeatherData } from "../utils/weatherApi";
-import { getWeatherType } from "../utils/weatherApi";
 import ItemModal from "./ItemModal";
 import Footer from "./Footer";
 import { CurrentTempUnitContext } from "../contexts/CurrentTempUnitContext";
