@@ -7,14 +7,7 @@ const currentDate = new Date().toLocaleString("default", {
   day: "numeric",
 });
 
-function Header({
-  weatherData,
-  currentTempUnit,
-  selectedLabel,
-  isChecked,
-  handleToggleSwitchChange,
-  handleButtonClick,
-}) {
+function Header({ weatherData, isChecked, handleButtonClick }) {
   return (
     <header className="header">
       <Link to="/">
@@ -28,12 +21,7 @@ function Header({
         {currentDate}, {weatherData.city}
       </p>
       <div className="header__switch-container">
-        <ToggleSwitch
-          currentTempUnit={currentTempUnit}
-          handleToggleSwitchChange={handleToggleSwitchChange}
-          isChecked={isChecked}
-          selectedLabel={selectedLabel}
-        />
+        <ToggleSwitch isChecked={isChecked} />
       </div>
       <button
         onClick={handleButtonClick}

@@ -15,7 +15,7 @@ import { filterWeatherData } from "../utils/weatherApi";
 import { getWeatherType } from "../utils/weatherApi";
 import ItemModal from "./ItemModal";
 import Footer from "./Footer";
-import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
+import { CurrentTempUnitContext } from "../contexts/CurrentTempUnitContext";
 import api from "../utils/api";
 import DeleteCardModal from "./DeleteCardModal";
 
@@ -38,8 +38,9 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onClose = (resetValues) => {
+  const onClose = () => {
     setActiveModal("");
   };
 
@@ -71,29 +72,36 @@ function App() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getWeather(latitude, longitude, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
+        setIsLoading(false);
       })
       .catch(console.error);
-  }, [setLoading]);
+  }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     api
       .getItemList()
       .then((items) => {
         setClothingItems(items);
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const handleAddItem = (name, weather, imageUrl) => {
+  const handleAddItem = (name, weather, imageUrl, resetInputs) => {
+    setIsLoading(true);
     api
       .addItem(name, weather, imageUrl)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         onClose();
+        resetInputs();
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -104,11 +112,13 @@ function App() {
   };
 
   const handleDeleteItem = (item) => {
+    setIsLoading(true);
     api
       .removeItem(item._id)
       .then(() => {
         setClothingItems(clothingItems.filter((card) => card._id !== item._id));
         onClose();
+        setIsLoading(false);
       })
       .catch((err) => console.log(err));
   };
@@ -140,10 +150,7 @@ function App() {
             <div className="page__content">
               <Header
                 weatherData={weatherData}
-                currentTempUnit={currentTempUnit}
-                selectedLabel={selectedLabel}
                 isChecked={isChecked}
-                handleToggleSwitchChange={handleToggleSwitchChange}
                 handleButtonClick={handleButtonClick}
               />
 
@@ -153,7 +160,6 @@ function App() {
                   element={
                     <Main
                       weatherData={weatherData}
-                      currentTempUnit={currentTempUnit}
                       handleItemClick={handleItemClick}
                       clothingItems={clothingItems}
                     />
@@ -175,6 +181,7 @@ function App() {
                 isOpen={activeModal === "add-garment"}
                 handleAddItem={handleAddItem}
                 onClose={onClose}
+                isLoading={isLoading}
               />
               <ItemModal
                 handleOutsideClick={handleOutsideClick}
@@ -189,6 +196,7 @@ function App() {
                 handleDeleteItem={handleDeleteItem}
                 onClose={onClose}
                 item={selectedCard}
+                isLoading={isLoading}
               />
               <Footer />
             </div>

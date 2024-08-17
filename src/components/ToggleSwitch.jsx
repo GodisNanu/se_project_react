@@ -1,17 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import "../blocks/toggle-switch.css";
-import CurrentTempUnitContext from "../contexts/CurrentTempUnitContext";
+import { CurrentTempUnitContext } from "../contexts/CurrentTempUnitContext";
 
-const ToggleSwitch = ({
-  currentTempUnit,
-  handleToggleSwitchChange,
-  isChecked,
-  selectedLabel,
-}) => {
-  /* const { currentTempUnit, handleToggleSwitchChange } = useContext(
+const ToggleSwitch = ({ isChecked }) => {
+  const { currentTempUnit, handleToggleSwitchChange } = useContext(
     CurrentTempUnitContext
   );
-*/
   return (
     <div className="toggle-switch">
       <input
@@ -19,7 +13,7 @@ const ToggleSwitch = ({
         type="checkbox"
         name="toggle-switch-checkbox"
         id={"toggle-switch-new"}
-        // value={currentTempUnit}
+        value={currentTempUnit}
         onChange={handleToggleSwitchChange}
         checked={isChecked}
       />{" "}
