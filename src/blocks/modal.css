@@ -223,9 +223,16 @@
 }
 
 /* not sure why this media query isn't working */
-@media screen and (width <= 405px) {
-  .modal__confirm-delete-button {
-    bottom: 20%;
-    right: 30%;
+@media only screen and (max-width: 405px) {
+  .modal .modal__confirm-delete-button {
+    color: green !important;
+    /* {bottom: 20% !important;
+    right: 30% !important;} */
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    background-color: yellow;
   }
 }
