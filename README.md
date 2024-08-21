@@ -22,4 +22,4 @@ Project available at:
 https://GodisNanu.github.io/se_project_react/
 
 - [Figma Design](https://www.figma.com/file/DTojSwldenF9UPKQZd6RRb/Sprint-10%3A-WTWR)
-- [Demo]
+- [Demo](https://www.loom.com/share/d2446fd3996f4fb9a82caf13010c355c?sid=55102d99-1659-4bd4-9ec8-3f5740c6e121)
