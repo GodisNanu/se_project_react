@@ -11,7 +11,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 - The user can add or delete clothing items
 
 ## Tech Stack
-HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUP, FIGMA, JSON
+HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUB, FIGMA, JSON
 
 ## Roadmap
 
