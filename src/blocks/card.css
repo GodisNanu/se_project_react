@@ -18,6 +18,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .card__list-name {
