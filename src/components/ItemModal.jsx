@@ -4,9 +4,11 @@ function ItemModal({
   handleOutsideClick,
   activeModal,
   item,
+  userData,
   onClose,
   handleDeleteClick,
 }) {
+  const isOwn = item.owner === userData._id;
   return (
     <div
       onClick={handleOutsideClick}
@@ -22,14 +24,16 @@ function ItemModal({
           <h2 className="modal__caption-title">{item.name}</h2>
           <p className="modal__weather">Weather: {item.weather}</p>
         </div>
-        <button
-          className="modal__delete-item-button"
-          onClick={() => {
-            handleDeleteClick(item);
-          }}
-        >
-          Delete item
-        </button>
+        {isOwn && (
+          <button
+            className="modal__delete-item-button"
+            onClick={() => {
+              handleDeleteClick(item);
+            }}
+          >
+            Delete item
+          </button>
+        )}
       </div>
     </div>
   );

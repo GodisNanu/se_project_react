@@ -2,13 +2,27 @@ import "../blocks/profile.css";
 import Sidebar from "./Sidebar";
 import ClothesSection from "./ClothesSection";
 
-const Profile = ({ handleButtonClick, handleItemClick, clothingItems }) => (
+const Profile = ({
+  userData,
+  handleEditProfileClick,
+  handleLogout,
+  handleAddButtonClick,
+  handleItemClick,
+  clothingItems,
+  onCardLike,
+}) => (
   <div className="profile">
-    <Sidebar />
+    <Sidebar
+      userData={userData}
+      handleEditProfileClick={handleEditProfileClick}
+      handleLogout={handleLogout}
+    />
     <ClothesSection
-      handleButtonClick={handleButtonClick}
+      handleAddButtonClick={handleAddButtonClick}
       handleItemClick={handleItemClick}
+      userData={userData}
       clothingItems={clothingItems}
+      onCardLike={onCardLike}
     />
   </div>
 );

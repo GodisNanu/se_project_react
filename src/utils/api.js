@@ -12,11 +12,13 @@ const getItemList = () => {
   }).then(handleServerResponse);
 };
 
-const addItem = (name, weather, imageUrl) => {
+const addItem = ({ jwt }, name, weather, imageUrl) => {
   return fetch(`${Base_Url}/items`, {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
     },
     body: JSON.stringify({
       name,
@@ -26,11 +28,50 @@ const addItem = (name, weather, imageUrl) => {
   }).then(handleServerResponse);
 };
 
-const removeItem = (id) => {
+const removeItem = (id, { jwt }) => {
   return fetch(`${Base_Url}/items/${id}`, {
     method: "DELETE",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
+    },
+  }).then(handleServerResponse);
+};
+
+const editProfile = ({ jwt }, name, avatar) => {
+  return fetch(`${Base_Url}/users/me`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${jwt}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  }).then(handleServerResponse);
+};
+
+const addCardLike = (id, token) => {
+  return fetch(`${Base_Url}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(handleServerResponse);
+};
+
+const removeCardLike = (id, token) => {
+  return fetch(`${Base_Url}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   }).then(handleServerResponse);
 };
@@ -39,6 +80,9 @@ const api = {
   getItemList,
   addItem,
   removeItem,
+  editProfile,
+  addCardLike,
+  removeCardLike,
 };
 
 export default api;

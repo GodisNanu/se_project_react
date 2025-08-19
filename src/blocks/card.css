@@ -15,14 +15,21 @@
 
 .card__list-item {
   width: 323px;
+  height: 323px;
   position: relative;
   display: flex;
   justify-content: center;
   cursor: pointer;
 }
 
-.card__list-name {
+.card__list-content {
   position: absolute;
+  display: flex;
+  gap: 10px;
+  top: 15px;
+}
+
+.card__list-name {
   top: 15px;
   font-family: "CabinetGrotesk-Bold", Times, serif;
   font-size: 20px;
@@ -37,4 +44,23 @@
   width: 100%;
   border-radius: 25px;
   border: 1px solid #0000004d;
+  object-fit: cover;
+}
+
+.card__list-like-button {
+  background: transparent url(../assets/Vectorheart.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  margin: 0;
+  align-self: center;
+  border: 0;
+}
+
+.card__list-like-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.card__list-like-button_active {
+  background-image: url(../assets/Activeheart.svg);
 }
