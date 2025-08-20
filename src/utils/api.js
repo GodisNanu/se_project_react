@@ -54,24 +54,24 @@ const editProfile = ({ jwt }, name, avatar) => {
   }).then(handleServerResponse);
 };
 
-const addCardLike = (id, token) => {
+const addCardLike = (id, { jwt }) => {
   return fetch(`${Base_Url}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${jwt}`,
     },
   }).then(handleServerResponse);
 };
 
-const removeCardLike = (id, token) => {
+const removeCardLike = (id, { jwt }) => {
   return fetch(`${Base_Url}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${jwt}`,
     },
   }).then(handleServerResponse);
 };

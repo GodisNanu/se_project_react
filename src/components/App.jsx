@@ -163,6 +163,7 @@ function App() {
   const handleLogout = () => {
     token.removeToken();
     setIsLoggedIn(false);
+    setUserData([]);
     navigate("/");
   };
 
@@ -198,10 +199,10 @@ function App() {
   };
 
   const handleCardLike = ({ id, isLiked }) => {
-    const token = localStorage.getItem("jwt");
+    const jwt = token.getToken();
     !isLiked
       ? api
-          .addCardLike(id, token)
+          .addCardLike(id, { jwt })
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
@@ -209,7 +210,7 @@ function App() {
           })
           .catch(console.error)
       : api
-          .removeCardLike(id, token)
+          .removeCardLike(id, { jwt })
           .then((updatedCard) => {
             setClothingItems((cards) =>
               cards.map((item) => (item._id === id ? updatedCard : item))
