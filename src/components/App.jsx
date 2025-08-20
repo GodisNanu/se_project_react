@@ -153,6 +153,7 @@ function App() {
             setUserData(user);
             setIsLoggedIn(true);
             onClose();
+            navigate("/");
             setIsLoading(false);
           });
         }

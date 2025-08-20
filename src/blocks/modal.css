@@ -232,18 +232,3 @@
   left: 160px;
   cursor: pointer;
 }
-
-/* not sure why this media query isn't working */
-@media only screen and (max-width: 405px) {
-  .modal .modal__confirm-delete-button {
-    color: green !important;
-    /* {bottom: 20% !important;
-    right: 30% !important;} */
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  body {
-    background-color: yellow;
-  }
-}

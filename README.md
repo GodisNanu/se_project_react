@@ -16,8 +16,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUB, FIGMA, JSON
 
 ## Roadmap
-
-My intention is to add to this design so that it is more responsive and interactive.  I plan to update the design so that the user can change the current location. 
+  I plan to update the design so that the user can change the current location. 
 
 ## Links
 Project soon available at:
