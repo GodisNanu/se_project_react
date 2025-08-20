@@ -17,6 +17,7 @@ const Profile = ({
       handleEditProfileClick={handleEditProfileClick}
       handleLogout={handleLogout}
     />
+
     <ClothesSection
       handleAddButtonClick={handleAddButtonClick}
       handleItemClick={handleItemClick}

@@ -183,15 +183,12 @@ function App() {
   };
 
   const handleAddItem = (name, weather, imageUrl, resetInputs) => {
-    console.log("starting to add item..");
     const jwt = token.getToken();
     setIsLoading(true);
     api
       .addItem({ jwt }, name, weather, imageUrl)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
-        console.log("new item added:", newItem);
-        console.log(clothingItems);
+        setClothingItems([newItem.data, ...clothingItems]);
         onClose();
         resetInputs();
         setIsLoading(false);
