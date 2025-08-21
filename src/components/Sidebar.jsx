@@ -1,4 +1,4 @@
-import "..//blocks/profile.css";
+import "../blocks/profile.css";
 
 function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
   return (

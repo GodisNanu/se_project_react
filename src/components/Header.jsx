@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../blocks/header.css";
 import ToggleSwitch from "./ToggleSwitch";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const currentDate = new Date().toLocaleString("default", {
   month: "long",
@@ -23,18 +24,14 @@ function Header({
     if (!isLoggedIn) {
       return;
     }
-    const Initial = userData.name.charAt(0).toUpperCase();
-    setInitial(Initial);
+    const userInitial = userData.name.charAt(0).toUpperCase();
+    setInitial(userInitial);
   }, [isLoggedIn, userData]);
 
   return (
     <header className="header">
       <Link to="/">
-        <img
-          src="./src/assets/logo.svg"
-          alt="wtwr logo"
-          className="header__logo"
-        />
+        <img src={logo} alt="wtwr logo" className="header__logo" />
       </Link>
       <p className="header__date-and-location">
         {currentDate}, {weatherData.city}
