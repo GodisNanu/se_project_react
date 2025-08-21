@@ -3,6 +3,7 @@ import ModalWithForm from "./ModalWithForm";
 import { validateBasicUrl, validateTextInput } from "../FormValidation";
 
 const EditProfileModal = ({
+  userData,
   handleOutsideClick,
   isOpen,
   handleEditProfile,
@@ -15,8 +16,8 @@ const EditProfileModal = ({
   const [error2, setError2] = useState("");
   const [isValid, setIsValid] = useState(false);
   const resetInputs = () => {
-    setNameInput("");
-    setUrlInput("");
+    setNameInput(userData.name);
+    setUrlInput(userData.avatar);
   };
 
   useEffect(() => {
@@ -48,6 +49,7 @@ const EditProfileModal = ({
   };
 
   function handleSubmit(e) {
+    e.preventDefault();
     if (isValid) {
       handleEditProfile(nameInput, urlInput, resetInputs);
     }

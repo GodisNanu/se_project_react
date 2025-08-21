@@ -174,7 +174,7 @@ function App() {
     api
       .editProfile({ jwt }, name, avatar)
       .then((data) => {
-        setUserData(data.user);
+        setUserData(data);
         onClose();
         resetInputs();
         setIsLoading(false);
@@ -301,6 +301,7 @@ function App() {
                   />
                 </Routes>
                 <EditProfileModal
+                  userData={userData}
                   handleOutsideClick={handleOutsideClick}
                   isOpen={activeModal === "edit-profile"}
                   handleEditProfile={handleEditProfile}

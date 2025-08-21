@@ -77,8 +77,7 @@ const AddItemModal = ({
       <label htmlFor="name" className="modal__label">
         Name{" "}
         <input
-          type="
-        text"
+          type="text"
           className="modal__input"
           id="name"
           placeholder="Name"
@@ -90,8 +89,7 @@ const AddItemModal = ({
       <label htmlFor="imageUrl" className="modal__label">
         Image{" "}
         <input
-          type="
-        link"
+          type="link"
           className="modal__input "
           id="imageUrl"
           placeholder="Image URL"
@@ -105,7 +103,7 @@ const AddItemModal = ({
         <label
           htmlFor="hot"
           className="modal__label modal__radio"
-          id="modal__radio-button"
+          id="modal__radio-button-hot"
         >
           <input
             id="hot"
@@ -121,7 +119,7 @@ const AddItemModal = ({
         <label
           htmlFor="warm"
           className="modal__label modal__radio "
-          id="modal__radio-button"
+          id="modal__radio-button-warm"
         >
           <input
             id="warm"
@@ -137,7 +135,7 @@ const AddItemModal = ({
         <label
           htmlFor="chilly"
           className="modal__label modal__radio"
-          id="modal__radio-button"
+          id="modal__radio-button-chilly"
         >
           <input
             id="chilly"
@@ -153,7 +151,7 @@ const AddItemModal = ({
         <label
           htmlFor="cold"
           className="modal__label modal__radio"
-          id="modal__radio-button"
+          id="modal__radio-button-cold"
         >
           <input
             id="cold"
