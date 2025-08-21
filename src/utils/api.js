@@ -1,11 +1,11 @@
-const Base_Url = "http://localhost:3001";
+const baseUrl = "http://localhost:3001";
 
 export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
 };
 
 const getItemList = () => {
-  return fetch(`${Base_Url}/items`, {
+  return fetch(`${baseUrl}/items`, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -13,7 +13,7 @@ const getItemList = () => {
 };
 
 const addItem = ({ jwt }, name, weather, imageUrl) => {
-  return fetch(`${Base_Url}/items`, {
+  return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -29,7 +29,7 @@ const addItem = ({ jwt }, name, weather, imageUrl) => {
 };
 
 const removeItem = (id, { jwt }) => {
-  return fetch(`${Base_Url}/items/${id}`, {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -40,7 +40,7 @@ const removeItem = (id, { jwt }) => {
 };
 
 const editProfile = ({ jwt }, name, avatar) => {
-  return fetch(`${Base_Url}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",
@@ -55,7 +55,7 @@ const editProfile = ({ jwt }, name, avatar) => {
 };
 
 const addCardLike = (id, { jwt }) => {
-  return fetch(`${Base_Url}/items/${id}/likes`, {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
@@ -66,7 +66,7 @@ const addCardLike = (id, { jwt }) => {
 };
 
 const removeCardLike = (id, { jwt }) => {
-  return fetch(`${Base_Url}/items/${id}/likes`, {
+  return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",

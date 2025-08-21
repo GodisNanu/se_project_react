@@ -1,11 +1,8 @@
-const Base_Url = "http://localhost:3001";
-
-export const handleServerResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error:${res.status}`);
-};
+const baseUrl = "http://localhost:3001";
+import { handleServerResponse } from "./api";
 
 const signup = (name, avatar, email, password) => {
-  return fetch(`${Base_Url}/signup`, {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +17,7 @@ const signup = (name, avatar, email, password) => {
 };
 
 const signin = (email, password) => {
-  return fetch(`${Base_Url}/signin`, {
+  return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +30,7 @@ const signin = (email, password) => {
 };
 
 const checkToken = (jwt) => {
-  return fetch(`${Base_Url}/users/me`, {
+  return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
