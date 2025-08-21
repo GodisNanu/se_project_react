@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
-import { ValidateBasicUrl, ValidateTextInput } from "../FormValidation";
+import { validateBasicUrl, validateTextInput } from "../FormValidation";
 
 const AddItemModal = ({
   handleOutsideClick,
@@ -30,7 +30,7 @@ const AddItemModal = ({
   const handleNameChange = (e) => {
     const newValue = e.target.value;
     setNameInput(newValue);
-    const validationError = ValidateTextInput(newValue);
+    const validationError = validateTextInput(newValue);
     setError(validationError ? validationError : "");
     const newErrors = { ...error };
     newErrors.name = validationError;
@@ -43,7 +43,7 @@ const AddItemModal = ({
   const handleUrlChange = (e) => {
     const newUrl = e.target.value;
     setUrlInput(newUrl);
-    const validationError2 = ValidateBasicUrl(newUrl);
+    const validationError2 = validateBasicUrl(newUrl);
     setError2(validationError2 ? validationError2 : "");
     const newErrors = { ...error };
     newErrors.name = validationError2;

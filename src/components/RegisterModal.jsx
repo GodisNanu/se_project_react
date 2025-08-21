@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
 import {
-  ValidateBasicPassword,
-  ValidateBasicEmail,
-  ValidateBasicUrl,
-  ValidateTextInput,
+  validateBasicPassword,
+  validateBasicEmail,
+  validateBasicUrl,
+  validateTextInput,
 } from "../FormValidation";
 
 const RegisterModal = ({
@@ -38,7 +38,7 @@ const RegisterModal = ({
   const handleEmailChange = (e) => {
     const newValue = e.target.value;
     setEmailInput(newValue);
-    const validationError = ValidateBasicEmail(newValue);
+    const validationError = validateBasicEmail(newValue);
     setError(validationError ? validationError : "");
     const newErrors = { ...error };
     newErrors.name = validationError;
@@ -49,7 +49,7 @@ const RegisterModal = ({
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPasswordInput(newPassword);
-    const validationError2 = ValidateBasicPassword(newPassword);
+    const validationError2 = validateBasicPassword(newPassword);
     setError2(validationError2 ? validationError2 : "");
     const newErrors = { ...error };
     newErrors.name = validationError2;
@@ -60,7 +60,7 @@ const RegisterModal = ({
   const handleNameChange = (e) => {
     const newValue = e.target.value;
     setNameInput(newValue);
-    const validationError = ValidateTextInput(newValue);
+    const validationError = validateTextInput(newValue);
     setError(validationError ? validationError : "");
     const newErrors = { ...error };
     newErrors.name = validationError;
@@ -71,7 +71,7 @@ const RegisterModal = ({
   const handleUrlChange = (e) => {
     const newUrl = e.target.value;
     setUrlInput(newUrl);
-    const validationError2 = ValidateBasicUrl(newUrl);
+    const validationError2 = validateBasicUrl(newUrl);
     setError2(validationError2 ? validationError2 : "");
     const newErrors = { ...error };
     newErrors.name = validationError2;

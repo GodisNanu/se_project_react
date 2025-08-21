@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ModalWithForm from "./ModalWithForm";
-import { ValidateBasicPassword, ValidateBasicEmail } from "../FormValidation";
+import { validateBasicPassword, validateBasicEmail } from "../FormValidation";
 
 const LoginModal = ({
   handleOutsideClick,
@@ -29,7 +29,7 @@ const LoginModal = ({
   const handleEmailChange = (e) => {
     const newValue = e.target.value;
     setEmailInput(newValue);
-    const validationError = ValidateBasicEmail(newValue);
+    const validationError = validateBasicEmail(newValue);
     setError(validationError ? validationError : "");
     const newErrors = { ...error };
     newErrors.name = validationError;
@@ -40,7 +40,7 @@ const LoginModal = ({
   const handlePasswordChange = (e) => {
     const newPassword = e.target.value;
     setPasswordInput(newPassword);
-    const validationError2 = ValidateBasicPassword(newPassword);
+    const validationError2 = validateBasicPassword(newPassword);
     setError2(validationError2 ? validationError2 : "");
     const newErrors = { ...error };
     newErrors.name = validationError2;

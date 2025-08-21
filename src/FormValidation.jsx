@@ -1,4 +1,4 @@
-export function ValidateTextInput(value) {
+export function validateTextInput(value) {
   if (value.length < 1) {
     return "Field is required";
   } else if (/\s\s/.test(value)) {
@@ -9,7 +9,7 @@ export function ValidateTextInput(value) {
   return true;
 }
 
-export function ValidateBasicUrl(url) {
+export function validateBasicUrl(url) {
   const urlRegex =
     /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/;
   if (url.length < 1) {
@@ -19,7 +19,7 @@ export function ValidateBasicUrl(url) {
   }
 }
 
-export function ValidateBasicPassword(password) {
+export function validateBasicPassword(password) {
   const passwordRegex =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   if (password.length < 1) {
@@ -29,7 +29,7 @@ export function ValidateBasicPassword(password) {
   }
 }
 
-export function ValidateBasicEmail(email) {
+export function validateBasicEmail(email) {
   const emailRegex = /^\S+@\S+\.\S+$/;
   if (email.length < 1) {
     return "Field is required";
