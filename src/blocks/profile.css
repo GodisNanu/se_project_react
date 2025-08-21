@@ -1,5 +1,6 @@
 .profile {
   display: flex;
+  justify-content: center;
 }
 
 .profile__sidebar {
@@ -96,6 +97,14 @@
   justify-content: center;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
+  .profile__edit-button {
+    font-size: 28px;
+  }
+  .profile__logout-button {
+    font-size: 28px;
+  }
+}
 @media only screen and (max-width: 680px) {
   .profile {
     flex-wrap: wrap;
