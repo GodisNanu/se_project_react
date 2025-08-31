@@ -20,7 +20,7 @@ import { CurrentTempUnitContext } from "../contexts/CurrentTempUnitContext";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import api from "../utils/api";
 import auth from "../utils/auth";
-import token from "../utils/token";
+import handleToken from "../utils/token";
 import DeleteCardModal from "./DeleteCardModal";
 import RegisterModal from "./RegisterModal";
 import LoginModal from "./LoginModal.jsx";
@@ -113,7 +113,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const jwt = token.getToken();
+    const jwt = handleToken.getToken();
     if (!jwt) {
       return;
     }
@@ -148,7 +148,7 @@ function App() {
       .signin(email, password)
       .then((data) => {
         if (data) {
-          token.setToken(data.token);
+          handleToken.setToken(data.token);
           auth.checkToken(data.token).then((user) => {
             setUserData(user);
             setIsLoggedIn(true);
@@ -162,14 +162,14 @@ function App() {
   };
 
   const handleLogout = () => {
-    token.removeToken();
+    handleToken.removeToken();
     setIsLoggedIn(false);
     setUserData([]);
     navigate("/");
   };
 
   const handleEditProfile = (name, avatar, resetInputs) => {
-    const jwt = token.getToken();
+    const jwt = handleToken.getToken();
     setIsLoading(true);
     api
       .editProfile({ jwt }, name, avatar)
@@ -183,7 +183,7 @@ function App() {
   };
 
   const handleAddItem = (name, weather, imageUrl, resetInputs) => {
-    const jwt = token.getToken();
+    const jwt = handleToken.getToken();
     setIsLoading(true);
     api
       .addItem({ jwt }, name, weather, imageUrl)
@@ -197,7 +197,7 @@ function App() {
   };
 
   const handleCardLike = ({ id, isLiked }) => {
-    const jwt = token.getToken();
+    const jwt = handleToken.getToken();
     !isLiked
       ? api
           .addCardLike(id, { jwt })
@@ -223,7 +223,7 @@ function App() {
   };
 
   const handleDeleteItem = (item) => {
-    const jwt = token.getToken();
+    const jwt = handleToken.getToken();
     setIsLoading(true);
     api
       .removeItem(item._id, { jwt })
