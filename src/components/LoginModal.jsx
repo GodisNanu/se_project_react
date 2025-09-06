@@ -9,6 +9,7 @@ const LoginModal = ({
   onClose,
   isLoading,
   handleRegisterClick,
+  newError,
 }) => {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -97,6 +98,7 @@ const LoginModal = ({
         />
         {error2 && <p className="modal__input-error">{error2}</p>}
       </label>
+      {newError && <p className="modal__input-error">{newError}</p>}
       <button
         className="modal__alternative-button"
         type="button"

@@ -47,6 +47,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [newError, setNewError] = useState("");
 
   const navigate = useNavigate();
 
@@ -141,7 +142,6 @@ function App() {
 
   const handleLogin = (email, password) => {
     setIsLoading(true);
-
     auth
       .signin(email, password)
       .then((data) => {
@@ -156,7 +156,11 @@ function App() {
           });
         }
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+        setNewError(err.message || "Email or password incorrect");
+      });
   };
 
   const handleLogout = () => {
@@ -336,6 +340,7 @@ function App() {
                   onClose={onClose}
                   isLoading={isLoading}
                   handleLoginClick={handleLoginClick}
+                  newError={newError}
                 />
                 <LoginModal
                   handleOutsideClick={handleOutsideClick}
@@ -344,6 +349,7 @@ function App() {
                   onClose={onClose}
                   isLoading={isLoading}
                   handleRegisterClick={handleSignUpClick}
+                  newError={newError}
                 />
                 <Footer />
               </div>
