@@ -1,4 +1,7 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr2025.lostgumball.com"
+    : "http://localhost:3001";
 import { handleServerResponse } from "./api";
 
 const signup = (name, avatar, email, password) => {
