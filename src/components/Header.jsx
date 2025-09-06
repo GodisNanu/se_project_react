@@ -55,8 +55,9 @@ function Header({
               {userData.avatar ? (
                 <img
                   src={userData.avatar}
-                  alt={initial}
+                  alt={"user avatar"}
                   className="header__avatar"
+                  onError={initial}
                 />
               ) : (
                 <div className="header__avatar-placeholder-container">
