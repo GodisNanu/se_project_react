@@ -19,6 +19,7 @@ function Header({
   handleLoginClick,
 }) {
   const [initial, setInitial] = useState("");
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -28,6 +29,9 @@ function Header({
     setInitial(userInitial);
   }, [isLoggedIn, userData]);
 
+  const handleOnError = () => {
+    setHasError(true);
+  };
   return (
     <header className="header">
       <Link to="/">
@@ -52,18 +56,19 @@ function Header({
           <div className="header__user-container">
             <p className="header__username"> {userData.name} </p>
             <Link to="/profile">
-              {userData.avatar ? (
-                <img
-                  src={userData.avatar}
-                  alt={"user avatar"}
-                  className="header__avatar"
-                />
-              ) : (
+              {!userData.avatar || hasError ? (
                 <div className="header__avatar-placeholder-container">
                   <span className="header__avatar-placeholder-initial">
                     {initial}
                   </span>
                 </div>
+              ) : (
+                <img
+                  src={userData.avatar}
+                  alt={"user avatar"}
+                  className="header__avatar"
+                  onError={handleOnError}
+                />
               )}
             </Link>
           </div>
