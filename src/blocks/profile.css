@@ -97,6 +97,16 @@
   justify-content: center;
 }
 
+.profile__avatar-placeholder-container {
+  display: flex;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  align-content: center;
+  justify-content: center;
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 800px) {
   .profile__edit-button {
     font-size: 28px;

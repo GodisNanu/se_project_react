@@ -20,8 +20,8 @@ function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
     <section className="profile__sidebar">
       <div className="profile__sidebar-user-info">
         {hasError ? (
-          <div className="header__avatar-placeholder-container">
-            <span className="header__avatar-placeholder-initial">
+          <div className="profile__avatar-placeholder-container">
+            <span className="profile__avatar-placeholder-initial">
               {initial}
             </span>
           </div>
