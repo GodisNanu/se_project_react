@@ -1,6 +1,15 @@
 import "../blocks/profile.css";
 
 function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
+  const [initial, setInitial] = useState("");
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+    const userInitial = userData.name.charAt(0).toUpperCase();
+    setInitial(userInitial);
+  }, [isLoggedIn, userData]);
   return (
     <section className="profile__sidebar">
       <div className="profile__sidebar-user-info">
@@ -8,6 +17,7 @@ function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
           src={userData.avatar}
           alt="user avatar"
           className="profile__avatar"
+          onError={initial}
         />
         <p className="profile__username"> {userData.name} </p>
       </div>
