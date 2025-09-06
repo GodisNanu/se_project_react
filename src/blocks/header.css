@@ -57,7 +57,14 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+.header__avatar-link {
+  text-decoration: none;
+}
+
 .header__avatar-placeholder-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -66,11 +73,10 @@
 }
 
 .header__avatar-placeholder-initial {
-  font-family: Cabinet Grotesk;
+  font-family: "CabinetGrotesk-Bold", Times, serif;
   font-weight: 700;
-  font-style: Bold;
   font-size: 20px;
-  line-height: 100%;
+  line-height: 24px;
   letter-spacing: 0%;
   text-align: center;
   vertical-align: middle;

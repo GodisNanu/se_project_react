@@ -55,7 +55,7 @@ function Header({
 
           <div className="header__user-container">
             <p className="header__username"> {userData.name} </p>
-            <Link to="/profile">
+            <Link to="/profile" className="header__avatar-link">
               {!userData.avatar || hasError ? (
                 <div className="header__avatar-placeholder-container">
                   <span className="header__avatar-placeholder-initial">
