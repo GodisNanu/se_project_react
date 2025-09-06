@@ -143,7 +143,7 @@ function App() {
     setIsLoading(true);
     if (!email || !password) {
       setIsLoading(false);
-      return "Invalid credentials";
+      return;
     }
     auth
       .signin(email, password)
