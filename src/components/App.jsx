@@ -142,7 +142,8 @@ function App() {
   const handleLogin = (email, password) => {
     setIsLoading(true);
     if (!email || !password) {
-      return;
+      setIsLoading(false);
+      return "Invalid credentials";
     }
     auth
       .signin(email, password)
