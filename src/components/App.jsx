@@ -141,10 +141,7 @@ function App() {
 
   const handleLogin = (email, password) => {
     setIsLoading(true);
-    if (!email || !password) {
-      setIsLoading(false);
-      return;
-    }
+
     auth
       .signin(email, password)
       .then((data) => {
