@@ -98,7 +98,7 @@ const LoginModal = ({
         />
         {error2 && <p className="modal__input-error">{error2}</p>}
       </label>
-      <p className="modal__input-error"> test {newError}</p>
+      {newError && <p className="modal__input-error"> {newError}</p>}
       <button
         className="modal__alternative-button"
         type="button"
