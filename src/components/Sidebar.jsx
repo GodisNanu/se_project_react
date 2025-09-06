@@ -1,7 +1,12 @@
 import "../blocks/profile.css";
 import { useState, useEffect } from "react";
 
-function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
+function Sidebar({
+  userData,
+  handleEditProfileClick,
+  handleLogout,
+  isLoggedIn,
+}) {
   const [initial, setInitial] = useState("");
   const [hasError, setHasError] = useState(false);
 

@@ -10,12 +10,14 @@ const Profile = ({
   handleItemClick,
   clothingItems,
   onCardLike,
+  isLoggedIn,
 }) => (
   <div className="profile">
     <Sidebar
       userData={userData}
       handleEditProfileClick={handleEditProfileClick}
       handleLogout={handleLogout}
+      isLoggedIn={isLoggedIn}
     />
 
     <ClothesSection

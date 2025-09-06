@@ -298,6 +298,7 @@ function App() {
                           handleItemClick={handleItemClick}
                           clothingItems={clothingItems}
                           onCardLike={handleCardLike}
+                          isLoggedIn={isLoggedIn}
                         />
                       </ProtectedRoute>
                     }
