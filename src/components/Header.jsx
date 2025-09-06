@@ -55,7 +55,7 @@ function Header({
               {userData.avatar ? (
                 <img
                   src={userData.avatar}
-                  alt="user avatar"
+                  alt={initial}
                   className="header__avatar"
                 />
               ) : (

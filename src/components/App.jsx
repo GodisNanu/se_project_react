@@ -53,6 +53,7 @@ function App() {
 
   const onClose = () => {
     setActiveModal("");
+    setNewError("");
   };
 
   function handleAddButtonClick() {
@@ -340,7 +341,6 @@ function App() {
                   onClose={onClose}
                   isLoading={isLoading}
                   handleLoginClick={handleLoginClick}
-                  newError={newError}
                 />
                 <LoginModal
                   handleOutsideClick={handleOutsideClick}
