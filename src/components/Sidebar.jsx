@@ -1,14 +1,38 @@
 import "../blocks/profile.css";
+import { useState, useEffect } from "react";
 
 function Sidebar({ userData, handleEditProfileClick, handleLogout }) {
+  const [initial, setInitial] = useState("");
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+    const userInitial = userData.name.charAt(0).toUpperCase();
+    setInitial(userInitial);
+  }, [isLoggedIn, userData]);
+
+  const handleOnError = () => {
+    setHasError(true);
+  };
   return (
     <section className="profile__sidebar">
       <div className="profile__sidebar-user-info">
-        <img
-          src={userData.avatar}
-          alt="user avatar"
-          className="profile__avatar"
-        />
+        {hasError ? (
+          <div className="header__avatar-placeholder-container">
+            <span className="header__avatar-placeholder-initial">
+              {initial}
+            </span>
+          </div>
+        ) : (
+          <img
+            src={userData.avatar}
+            alt="user avatar"
+            className="profile__avatar"
+            onError={handleOnError}
+          />
+        )}
         <p className="profile__username"> {userData.name} </p>
       </div>
       <div className="profile__sidebar-buttons">
