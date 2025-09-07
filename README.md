@@ -19,8 +19,8 @@ HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUB, FIGMA, JSON
   I plan to update the design so that the user can change the current location. 
 
 ## Links
-Project soon available at:
-https://GodisNanu.github.io/se_project_react/
+Project deployed at:
+https://wtwr2025.lostgumball.com
 
 Backend Repo:
 https://github.com/GodisNanu/se_project_express
