@@ -16,7 +16,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUB, FIGMA, JSON
 
 ## Roadmap
-  I plan to update the design so that the user can change the current location. 
+  I plan to update the design so that the user can change the current location.  I also am going to add cache-control headers and some other features to prevent issues when a user forgets to logout.
 
 ## Links
 Project deployed at:
