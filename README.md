@@ -16,7 +16,7 @@ The idea of the application is pretty simple - we make a call to an API, which t
 HTML, CSS, JAVASCRIPT, REACTJS, JSX, REST API, GITHUB, FIGMA, JSON, GOOGLE CLOUD
 
 ## Roadmap
-  I plan to update the design so that the user can change the current location.  Also going to add cache-control headers and some other features to prevent issues when a user forgets to logout.
+  I plan to update the design so that the user can change the current location.  Currently using PageSpeed Insights to improve performance optimization.  Also going to add cache-control headers and some other features to prevent issues when a user forgets to logout.
 
 ## Links
 Project deployed at:

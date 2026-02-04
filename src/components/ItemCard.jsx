@@ -27,6 +27,8 @@ function ItemCard({ item, onItemClick, onCardLike }) {
         onClick={() => {
           onItemClick(item);
         }}
+        width={320}
+        height={320}
         src={item.imageUrl}
         alt={item.name}
         className="card__list-image"

@@ -19,6 +19,8 @@ function WeatherCard({ weatherData, currentTempUnit }) {
       </p>
       <img
         src={weatherCardUrl}
+        width={600}
+        height={40}
         alt={`${weatherCardCondition}`}
         className="weather-card__image"
       />
